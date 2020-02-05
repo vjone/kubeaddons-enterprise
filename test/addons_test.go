@@ -6,6 +6,7 @@ import (
 	"io/ioutil"
 	"os"
 	"os/exec"
+	"strings"
 	"testing"
 
 	"github.com/blang/semver"
@@ -186,6 +187,7 @@ func addons(names ...string) ([]v1beta1.AddonInterface, error) {
 				}
 				// TODO - we need to re-org where these filters are done (see: https://jira.mesosphere.com/browse/DCOS-63260)
 				kafkaFilters(addon[0])
+				sparkFilters(addon[0])
 				testAddons = append(testAddons, addon[0])
 			}
 		}
@@ -238,6 +240,18 @@ func kafkaFilters(addon v1beta1.AddonInterface) {
 	if addon.GetName() == "kafka" {
 		zkuri := fmt.Sprintf("ZOOKEEPER_URI: zookeeper-cs.%s.svc", addon.GetNamespace())
 		addon.GetAddonSpec().KudoReference.Parameters = &zkuri
+	}
+}
+
+func sparkFilters(addon v1beta1.AddonInterface) {
+	if addon.GetName() == "spark" {
+		// for CI tests: disable prometheus dependency and disable metrics in Operator to skip ServiceMonitor installation
+		addon.GetAddonSpec().Requires = nil
+		a := strings.ReplaceAll(
+			*addon.GetAddonSpec().KudoReference.Parameters,
+			"enableMetrics: true",
+			"enableMetrics: false")
+		addon.GetAddonSpec().KudoReference.Parameters = &a
 	}
 }
 
