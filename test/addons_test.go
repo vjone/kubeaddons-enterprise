@@ -70,6 +70,12 @@ func TestKafkaGroup(t *testing.T) {
 	}
 }
 
+func TestSparkGroup(t *testing.T) {
+	if err := testgroup(t, "spark"); err != nil {
+		t.Fatal(err)
+	}
+}
+
 // -----------------------------------------------------------------------------
 // Private Functions
 // -----------------------------------------------------------------------------
