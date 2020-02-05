@@ -247,11 +247,11 @@ func sparkFilters(addon v1beta1.AddonInterface) {
 	if addon.GetName() == "spark" {
 		// for CI tests: disable prometheus dependency and disable metrics in Operator to skip ServiceMonitor installation
 		addon.GetAddonSpec().Requires = nil
-		a := strings.ReplaceAll(
+		kudoParams := strings.ReplaceAll(
 			*addon.GetAddonSpec().KudoReference.Parameters,
 			"enableMetrics: true",
 			"enableMetrics: false")
-		addon.GetAddonSpec().KudoReference.Parameters = &a
+		addon.GetAddonSpec().KudoReference.Parameters = &kudoParams
 	}
 }
 
