@@ -70,6 +70,12 @@ func TestKafkaGroup(t *testing.T) {
 	}
 }
 
+func TestCassandraGroup(t *testing.T) {
+	if err := testgroup(t, "cassandra"); err != nil {
+		t.Fatal(err)
+	}
+}
+
 func TestSparkGroup(t *testing.T) {
 	if err := testgroup(t, "spark"); err != nil {
 		t.Fatal(err)
@@ -192,8 +198,7 @@ func addons(names ...string) ([]v1beta1.AddonInterface, error) {
 					addon[0].SetNamespace("default")
 				}
 				// TODO - we need to re-org where these filters are done (see: https://jira.mesosphere.com/browse/DCOS-63260)
-				kafkaFilters(addon[0])
-				sparkFilters(addon[0])
+				filters(addon[0])
 				testAddons = append(testAddons, addon[0])
 			}
 		}
@@ -242,15 +247,15 @@ func kubectl(args ...string) error {
 	return cmd.Run()
 }
 
-func kafkaFilters(addon v1beta1.AddonInterface) {
-	if addon.GetName() == "kafka" {
+func filters(addon v1beta1.AddonInterface) {
+	switch addon.GetName() {
+	case "cassandra":
+		cassandraParameters := "NODE_COUNT: 1\nNODE_DISK_SIZE_GIB: 1\nPROMETHEUS_EXPORTER_ENABLED: \"false\""
+		addon.GetAddonSpec().KudoReference.Parameters = &cassandraParameters
+	case "kafka":
 		zkuri := fmt.Sprintf("ZOOKEEPER_URI: zookeeper-cs.%s.svc", addon.GetNamespace())
 		addon.GetAddonSpec().KudoReference.Parameters = &zkuri
-	}
-}
-
-func sparkFilters(addon v1beta1.AddonInterface) {
-	if addon.GetName() == "spark" {
+	case: "spark":
 		// for CI tests: disable prometheus dependency and disable metrics in Operator to skip ServiceMonitor installation
 		addon.GetAddonSpec().Requires = nil
 		kudoParams := strings.ReplaceAll(
