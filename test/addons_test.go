@@ -255,7 +255,7 @@ func filters(addon v1beta1.AddonInterface) {
 	case "kafka":
 		zkuri := fmt.Sprintf("ZOOKEEPER_URI: zookeeper-cs.%s.svc", addon.GetNamespace())
 		addon.GetAddonSpec().KudoReference.Parameters = &zkuri
-	case: "spark":
+	case "spark":
 		// for CI tests: disable prometheus dependency and disable metrics in Operator to skip ServiceMonitor installation
 		addon.GetAddonSpec().Requires = nil
 		kudoParams := strings.ReplaceAll(
