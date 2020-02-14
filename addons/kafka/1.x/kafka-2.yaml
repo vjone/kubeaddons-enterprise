@@ -30,4 +30,8 @@ spec:
     repo: https://kudo-repository.storage.googleapis.com/0.10.0
     version: 1.2.0
     parameters: |
-      ADD_SERVICE_MONITOR: true
+      ADD_SERVICE_MONITOR: true # adds service monitor for Kafka service
+      # replace ZOOKEEPER_URI with correct zookeeper URI based on zookeeper service name
+      # default expects a zookeeper addon with name 'zookeeper' to be installed previously
+      ZOOKEEPER_URI: zookeeper-hs:2181 # full example: <zookeeper-name>-zookeeper-0.<zookeeper-name>-hs:2181,<zookeeper-name>-zookeeper-1.<zookeeper-name>-hs:2181,<zookeeper-name>-zookeeper-2.<zookeeper-name>-hs:2181
+
