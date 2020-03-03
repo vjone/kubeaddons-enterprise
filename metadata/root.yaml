@@ -1,5 +1,5 @@
 jenkins:
-  display_name: Jenkins
+  display_name: Jenkins-WDC
   description: Jenkins
   logo: jenkins/logo.svg
   category: CI/CD
