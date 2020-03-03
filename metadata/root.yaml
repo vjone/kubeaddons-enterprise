@@ -1,9 +1,9 @@
 jenkins:
   display_name: redis
   description: Redis Service
-  logo: jenkins/logo.svg
-  category: CI/CD
-  overview: jenkins/overview.md
+  logo: redis/logo.svg
+  category: Cache
+  overview: redis/overview.md
   resources:
     provider:
       title: redis
