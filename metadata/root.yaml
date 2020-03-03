@@ -1,17 +1,17 @@
 jenkins:
-  display_name: Jenkins-WDC
-  description: Jenkins
+  display_name: redis
+  description: Redis Service
   logo: jenkins/logo.svg
   category: CI/CD
   overview: jenkins/overview.md
   resources:
     provider:
-      title: Jenkins
-      link: https://jenkins.io/
+      title: redis
+      link: https://redis.io/
     links:
       - type: resources
         title: Documentation
-        link: https://jenkins.io/
+        link: https://redis.io/documentation
       - type: support
         title: Submit a Support Request
         link: https://d2iq.com/services-and-support
