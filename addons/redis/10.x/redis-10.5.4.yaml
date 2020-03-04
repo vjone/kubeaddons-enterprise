@@ -7,7 +7,7 @@ metadata:
     kubeaddons.mesosphere.io/name: redis
   annotations:
     catalog.kubeaddons.mesosphere.io/addon-revision: "10.5.4-1"
-    appversion.kubeaddons.mesosphere.io/redis: "4.0.7"
+    appversion.kubeaddons.mesosphere.io/redis: "5.0.7"
     values.chart.helm.kubeaddons.mesosphere.io/redis: "https://raw.githubusercontent.com/helm/charts/master/stable/redis/values.yaml"
 spec:
   kubernetes:
