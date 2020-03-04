@@ -16,7 +16,7 @@ redis:
         title: Submit a Support Request
         link: https://d2iq.com/services-and-support
 elasticsearch:
-  display_name: Elasticsearch
+  display_name: Keehan-Elasticsearch
   description: Distributed Search
   logo: elasticsearch/elasticsearch.svg
   category: Search
