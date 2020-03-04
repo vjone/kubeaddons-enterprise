@@ -2,9 +2,9 @@
 apiVersion: kubeaddons.mesosphere.io/v1beta1
 kind: Addon
 metadata:
-  name: spark
+  name: grafana
   labels:
-    kubeaddons.mesosphere.io/name: spark
+    kubeaddons.mesosphere.io/name: grafana
     kubeaddons.mesosphere.io/hack-requires-defaultstorageclass: "true"
   annotations:
     catalog.kubeaddons.mesosphere.io/addon-revision: "2.4.5-1"

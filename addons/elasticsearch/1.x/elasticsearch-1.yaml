@@ -2,9 +2,9 @@
 apiVersion: kubeaddons.mesosphere.io/v1beta1
 kind: Addon
 metadata:
-  name: kafka
+  name: elasticsearch
   labels:
-    kubeaddons.mesosphere.io/name: kafka
+    kubeaddons.mesosphere.io/name: elasticsearch
     kubeaddons.mesosphere.io/hack-requires-defaultstorageclass: "true"
   annotations:
     catalog.kubeaddons.mesosphere.io/addon-revision: "2.4.0-2"
@@ -14,7 +14,7 @@ spec:
     minSupportedVersion: v1.16.0
   requires:
     - matchLabels:
-        kubeaddons.mesosphere.io/name: zookeeper
+        kubeaddons.mesosphere.io/name: elasticsearch
     - matchLabels:
         # requires servicemonitors.monitoring.coreos.com CRD to be present
         kubeaddons.mesosphere.io/name: prometheus
