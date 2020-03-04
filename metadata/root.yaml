@@ -1,7 +1,7 @@
 redis:
   display_name: redis
   description: Redis Service
-  logo: redis/logo.svg
+  logo: redis/redis.svg
   category: Cache
   overview: redis/overview.md
   resources:

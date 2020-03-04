@@ -1,13 +1,9 @@
 ## Overview
-redis is an award-winning, cross-platform, continuous integration and continuous delivery application that increases your productivity.
-Use Jenkins to build and test your software projects continuously making it easier for developers to integrate changes to the project,
-and making it easier for users to obtain a fresh build. It also allows you to continuously deliver your software by providing powerful
-ways to define your build pipelines and integrating with a large number of testing and deployment technologies.
-
-## Support Level
-- Mixed workload tested
-  - 250 Jenkins Masters
-- Base tech support
+Redis is an open source (BSD licensed), in-memory data structure store, used as a database, cache and message broker
+It supports data structures such as strings, hashes, lists, sets, sorted sets with range queries, bitmaps, hyperloglogs,
+geospatial indexes with radius queries and streams. Redis has built-in replication, Lua scripting, LRU eviction, transactions
+and different levels of on-disk persistence, and provides high availability via Redis Sentinel and automatic partitioning
+with Redis Cluster.
 
 ## License
-[MIT](https://github.com/jenkinsci/jenkins/blob/master/LICENSE.txt)
+[3-Clause BSD](https://redis.io/topics/license)
