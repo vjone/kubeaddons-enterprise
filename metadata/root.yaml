@@ -1,5 +1,5 @@
 redis:
-  display_name: redis
+  display_name: REDIS
   description: Redis Service
   logo: redis/redis.svg
   category: Cache
