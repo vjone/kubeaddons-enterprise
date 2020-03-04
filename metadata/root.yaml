@@ -1,4 +1,4 @@
-jenkins:
+redis:
   display_name: redis
   description: Redis Service
   logo: redis/logo.svg
